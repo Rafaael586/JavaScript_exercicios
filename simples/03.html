@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ecercicio</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
+</head>
+
+<body>
+    <section class="container">
+        <h3>3) Escreva um programa para ler uma temperatura em graus Celsius, calcular e escrever o valor correspondente
+            em graus
+            Fahrenheit. (F = (C * 9/5) + 32)
+
+        </h3>
+        <label>Qual a temperatura?</label>
+        <input type="text" value="0" id="temp">
+        <button onclick="CalcularTemp()">calcular</button>
+
+    </section>
+    <div id="texto"></div>
+
+</body>
+
+<script>
+    function CalcularTemp() {
+        var temperatura = document.getElementById("temp").value;
+        var F = (temperatura * 9 / 5) + 32;
+        console.log(F);
+        document.getElementById("texto").innerHTML = "<div class='alert alert-danger'>Resposta: " + F + "</div>";
+    }
+
+</script>
+
+</html>
