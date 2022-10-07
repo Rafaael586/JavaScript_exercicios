@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ecercicio</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
+</head>
+
+<body>
+    <section class="container">
+        <p>
+            4) Escreva um programa para calcular e imprimir o número de lâmpadas necessárias para iluminar um
+            determinado cômodo de
+            uma residência. Dados de entrada: a potência da lâmpada utilizada (em watts), as dimensões (largura e
+            comprimento, em
+            metros) do cômodo. Considere que a potência necessária é de 18 watts por metro quadrado.
+        </p>
+        <div class="form-groups">
+
+            <label for="">Qual a potencia da lampada?(watts)</label>
+            <input type="text" name="potencia" id="potencia" class="form-control">
+
+        </div>
+
+        <div class="form-groups">
+
+            <label for="">Qual a largura do comodo?(metros)</label>
+            <input type="text" name="largura" id="largura" class="form-control">
+
+        </div>
+
+        <div class="form-groups">
+
+            <label for="">Qual o comprimento do comodo?(metros)</label>
+            <input type="text" name="comprimento" id="comprimento" class="form-control">
+
+        </div>
+
+        <div class="form-groups">
+
+            <button class="btn btn-primary" onclick="controllerCalculo()"> calcular</button>
+
+        </div>
+
+
+
+    </section>
+
+    <span id="saidaTexto"></span>
+
+</body>
+
+<script>
+
+    function controllerCalculo(potencia, largura, comprimento) {
+        var potencia = document.getElementById("potencia").value;
+        var largura = document.getElementById("largura").value;
+        var comprimento = document.getElementById("comprimento").value;
+
+        var resp = calculoQuantidadeLampadas(potencia, largura, comprimento)
+
+        saidaDados("Quantidade de lâmpadas:" + resp);
+    }
+
+
+    function calculoQuantidadeLampadas(potencia, largura, comprimento) {
+        var dimensao = largura * comprimento;
+        var quantLampadas = (dimensao * 18) / potencia;
+        return quantLampadas;
+    }
+
+
+    function saidaDados(texto) {
+        document.getElementById("saidaTexto").innerHTML = texto;
+    }
+
+
+</script>
+
+</html>
