@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ecercicio</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
+</head>
+
+<body>
+    <section class="container">
+        <p>
+            5) Escreva um programa para ler as dimensões de uma cozinha retangular (comprimento, largura e altura),
+            calcular e
+            escrever a quantidade de caixas de azulejos para se colocar em todas as suas paredes (considere que não será
+            descontada
+            a área ocupada por portas e janelas). Cada caixa de azulejos possui 1,5 m2.
+
+        </p>
+
+        <form action="">
+
+            <div class="form-groups">
+
+                <label for="">Quantos metros quadrados tem a parede?(m2)</label>
+                <input type="text" name="m2" id="m2" class="form-control">
+
+            </div>
+
+            <div class="form-groups">
+
+                <label for="">Qual a largura do comodo?(metros)</label>
+                <input type="text" name="largura" id="largura" class="form-control">
+
+            </div>
+
+            <div class="form-groups">
+
+                <label for="">Qual a altura do comodo?(metros)</label>
+                <input type="text" name="altura" id="altura" class="form-control">
+
+            </div>
+
+            <div class="form-groups">
+
+                <button type="button" class="btn btn-primary" onclick="controllerCalculo()"> calcular</button>
+
+            </div>
+
+        </form>
+
+
+        <span id="saidaTexto"></span>
+    </section>
+
+</body>
+
+<script>
+
+    function controllerCalculo() {
+        var m2 = parseInt(document.getElementById("m2").value);
+        var largura = parseFloat(document.getElementById("largura").value);
+        var altura = parseFloat(document.getElementById("altura").value);
+
+        var x = calculoquantidadepisos(m2, largura, altura);
+
+        saidaDados("quantidade de caixas de pisos:" + x)
+    }
+
+    function calculoquantidadepisos(m2 = 0, largura = 0, altura = 0) {
+        var area_parede = largura * altura;
+        var quantidade_pisos = area_parede / m2;
+        return quantidade_pisos
+    }
+
+    function saidaDados(texto_saida) {
+        document.getElementById("saidaTexto").innerHTML = texto_saida;
+    }
+
+</script>
+
+</html>
