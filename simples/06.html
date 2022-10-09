@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ecercicio</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
+</head>
+
+<body>
+    <section class="container">
+        <p>
+            6) Um motorista de táxi deseja calcular o rendimento de seu carro na praça. Sabendo-se que o preço do
+            combustível é de
+            R$ 4,87, escreva um programa para ler: a marcação do odômetro (Km) no início do dia, a marcação (Km) no
+            final do dia, o
+            número de litros de combustível gasto e o valor total (R$) recebido dos passageiros. Calcular e escrever: a
+            média do
+            consumo em Km/L e o lucro líquido do dia.
+
+        </p>
+
+        <form action="">
+
+            <div class="form-groups">
+
+                <label for="">quantos kilometros marcava no começo do dia?(km)</label>
+                <input type="text" name="km_inicial" id="km_inicial" class="form-control">
+
+            </div>
+
+            <div class="form-groups">
+
+                <label for="">quantos kilometros marcava no final do dia?(km)</label>
+                <input type="text" name="km_final" id="km_final" class="form-control">
+
+            </div>
+
+            <div class="form-groups">
+
+                <label for="">Quantos litros de combustivel foram gastos?(lt)</label>
+                <input type="text" name="litros_gastos" id="litros_gastos" class="form-control">
+
+            </div>
+
+            <div class="form-groups">
+
+                <label for="">Valor total recebido no dia?(R$)</label>
+                <input type="text" name="saldo_bruto" id="saldo_bruto" class="form-control">
+
+            </div>
+
+            <div class="form-groups">
+
+                <button type="button" class="btn btn-primary" onclick="controllerCalculo()"> calcular</button>
+
+            </div>
+
+        </form>
+
+
+        <span id="saidaTexto"></span>
+    </section>
+
+</body>
+
+<script>
+    function controllerCalculo() {
+        var km_inicial = parseInt(document.getElementById("km_inicial").value);
+        var km_final = parseInt(document.getElementById("km_final").value);
+        var litros_gastos = parseInt(document.getElementById("litros_gastos").value);
+        var saldo_bruto = parseFloat(document.getElementById("saldo_bruto").value);
+    }
+
+    function calculosaldoliquido() {
+
+    }
+
+</script>
+
+</html>

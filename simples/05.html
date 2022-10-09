@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ecercicio</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
+</head>
+
+<body>
+    <section class="container">
+        <p>
+            5) Escreva um programa para ler as dimensões de uma cozinha retangular (comprimento, largura e altura),
+            calcular e
+            escrever a quantidade de caixas de azulejos para se colocar em todas as suas paredes (considere que não será
+            descontada
+            a área ocupada por portas e janelas). Cada caixa de azulejos possui 1,5 m2.
+
+        </p>
+
+        <form action="">
+
+            <div class="form-groups">
+
+                <label for="">Qual a largura da parede maior?(metros)</label>
+                <input type="text" name="largura_maior" id="largura_maior" class="form-control">
+
+            </div>
+
+            <div class="form-groups">
+
+                <label for="">Qual a altura da parede maior?(metros)</label>
+                <input type="text" name="altura_maior" id="altura_maior" class="form-control">
+
+            </div>
+
+            <div class="form-groups">
+
+                <label for="">Qual a largura da parede menor?(metros)</label>
+                <input type="text" name="largura_menor" id="largura_menor" class="form-control">
+
+            </div>
+
+            <div class="form-groups">
+
+                <label for="">Qual a altura da parede menor?(metros)</label>
+                <input type="text" name="altura_menor" id="altura_menor" class="form-control">
+
+            </div>
+
+
+
+            <div class="form-groups">
+
+                <button type="button" class="btn btn-primary" onclick="controllerCalculo()"> calcular</button>
+                <button type="reset" class="btn btn-primary" onclick="controllerCalculo()"> Limpar</button>
+
+            </div>
+
+        </form>
+
+
+        <span id="saidaTexto"></span>
+    </section>
+
+</body>
+
+<script>
+
+    function controllerCalculo() {
+        var largura_maior = parseFloat(document.getElementById("largura_maior").value);
+        var altura_maior = parseFloat(document.getElementById("altura_maior").value);
+        var largura_menor = parseFloat(document.getElementById("largura_menor").value);
+        var altura_menor = parseFloat(document.getElementById("altura_menor").value);
+
+        var resposta = calculoquantidadepisos(largura_maior, altura_maior, largura_menor, altura_menor);
+
+        saidaDados("quantidade de caixas de pisos:" + resposta)
+    }
+
+    function calculoquantidadepisos(largura_maior, altura_maior, largura_menor, altura_menor) {
+        var paredes_maiores = 2 * (largura_maior * altura_maior);
+        var paredes_menores = 2 * (largura_menor * altura_menor);
+        var total_pisos = (paredes_maiores + paredes_menores) / 1.5;
+        return total_pisos
+    }
+
+    function saidaDados(texto_saida) {
+        document.getElementById("saidaTexto").innerHTML = texto_saida;
+    }
+
+</script>
+
+</html>
