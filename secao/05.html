@@ -1,0 +1,75 @@
+!
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ecercicio</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
+</head>
+
+<body>
+    <section class="container">
+        <p>
+            5) Escreva um programa para ler um valor e escrever se é positivo ou negativo. Considere o valor
+            zero como positivo.
+
+        </p>
+
+        <form action="">
+
+            <div class="form-groups">
+
+                <label for="">Digite um valor.</label>
+                <input type="number" name="valor" id="valor" class="form-control">
+
+            </div>
+
+            <div class="form-groups">
+
+                <button type="button" class="btn btn-danger" onclick="controllervalidacao()">verificar</button>
+
+            </div>
+
+        </form>
+
+        <span id="saidaTexto"></span>
+
+    </section>
+
+</body>
+
+<script>
+    function controllervalidacao() {
+        var valor = parseFloat(document.getElementById("valor").value);
+
+        var resposta = verificapositivonegativo(valor);
+
+        saidaDados("O valor é " + resposta)
+    }
+
+    function verificapositivonegativo(valor = 0) {
+        if (valor == 0) {
+            return "ZERO"
+        }
+
+        else if (valor >= 0) {
+            return "Positivo"
+        }
+        else {
+            return "Negativo"
+        }
+
+
+    }
+
+    function saidaDados(texto_saida) {
+        document.getElementById("saidaTexto").innerHTML = texto_saida;
+    }
+
+</script>
+
+</html>

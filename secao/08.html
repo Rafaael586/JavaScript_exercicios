@@ -1,0 +1,71 @@
+!
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ecercicio</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
+</head>
+
+<body>
+    <section class="container">
+        <p>
+            8) Escreva um programa para ler o ano de nascimento de uma pessoa e escrever uma mensagem que
+            diga se ela poderá ou não votar este ano (não é necessário considerar o mês em que ela nasceu).
+
+
+        </p>
+
+        <form action="">
+
+            <div class="form-groups">
+
+                <label for="">Digite o ano do seu nascimento.</label>
+                <input type="number" name="ano" id="ano" class="form-control">
+
+            </div>
+
+            <div class="form-groups">
+
+                <button type="button" class="btn btn-danger" onclick="controllervalidacao()">verificar</button>
+
+            </div>
+
+        </form>
+
+        <span id="saidaTexto"></span>
+
+    </section>
+
+</body>
+
+<script>
+    function controllervalidacao() {
+        var ano = parseFloat(document.getElementById("ano").value);
+
+        var resposta = direitoaovoto(ano);
+        saidaDados(resposta)
+
+    }
+
+    function direitoaovoto(ano) {
+        if (ano < 2007) {
+            return "Você tem o direito de votar!"
+        }
+
+        else {
+            return "Você ainda não tem o direito de votar!"
+        }
+    }
+
+    function saidaDados(texto_saida) {
+        document.getElementById("saidaTexto").innerHTML = texto_saida;
+    }
+
+</script>
+
+</html>

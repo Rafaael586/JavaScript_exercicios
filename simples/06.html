@@ -46,6 +46,8 @@
 
             </div>
 
+
+
             <div class="form-groups">
 
                 <label for="">Valor total recebido no dia?(R$)</label>
@@ -61,8 +63,12 @@
 
         </form>
 
-
-        <span id="saidaTexto"></span>
+        <div>
+            <span id="saidaTexto_one"></span>
+        </div>
+        <div>
+            <span id="saidaTexto_two"></span>
+        </div>
     </section>
 
 </body>
@@ -71,12 +77,35 @@
     function controllerCalculo() {
         var km_inicial = parseInt(document.getElementById("km_inicial").value);
         var km_final = parseInt(document.getElementById("km_final").value);
-        var litros_gastos = parseInt(document.getElementById("litros_gastos").value);
+        var litros_gastos = parseFloat(document.getElementById("litros_gastos").value);
         var saldo_bruto = parseFloat(document.getElementById("saldo_bruto").value);
+
+        var resposta_one = calculo_km_litro(km_inicial, km_final, litros_gastos, saldo_bruto)
+        saidaDados_one("Quantidade de kilometros por litros:" + resposta_one)
+
+        var resposta_two = calculosaldoliquido(litros_gastos, saldo_bruto)
+        saidaDados_two("Saldo total liquido:" + resposta_two)
+
     }
 
-    function calculosaldoliquido() {
+    function calculo_km_litro(km_inicial, km_final, litros_gastos) {
+        var km_rodados = km_final - km_inicial;
+        var km_por_litros = km_rodados / litros_gastos;
+        return km_por_litros;
+        return total_liquido;
+    }
+    function calculosaldoliquido(litros_gastos, saldo_bruto) {
+        var valor_abastecido = litros_gastos * 4.87;
+        var total_liquido = saldo_bruto - valor_abastecido;
+        return total_liquido
+    }
 
+    function saidaDados_one(texto_saida_one) {
+        document.getElementById("saidaTexto_one").innerHTML = texto_saida_one;
+    }
+
+    function saidaDados_two(texto_saida_two) {
+        document.getElementById("saidaTexto_two").innerHTML = texto_saida_two;
     }
 
 </script>

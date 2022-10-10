@@ -1,0 +1,98 @@
+!
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ecercicio</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
+</head>
+
+<body>
+    <section class="container">
+        <p>
+            10) Escreva um programa para ler 3 valores inteiros (considere que não serão lidos valores iguais) e
+            escrevê-los em ordem crescente.
+
+        </p>
+
+        <form action="">
+
+            <div class="form-groups">
+
+                <label for="valor1">Digite o primeiro valor.</label>
+                <input type="number" step="1" name="valor1" id="valor1" class="form-control">
+
+            </div>
+
+            <div class="form-groups">
+
+                <label for="valor2">Digite o segundo valor.</label>
+                <input type="number" step="1" name="valor2" id="valor2" class="form-control">
+
+            </div>
+
+            <div class="form-groups">
+
+                <label for="valor3">Digite o terceiro valor.</label>
+                <input type="number" step="1" name="valor3" id="valor3" class="form-control">
+
+            </div>
+            <div class="form-groups">
+
+                <button type="button" class="btn btn-danger" onclick="controllervalidacao()">verificar</button>
+
+            </div>
+
+        </form>
+
+        <span id="saidaTexto"></span>
+
+    </section>
+
+</body>
+
+<script>
+    function controllervalidacao() {
+        var valor1 = parseInt(document.getElementById("valor1").value)
+        var valor2 = parseInt(document.getElementById("valor2").value)
+        var valor3 = parseInt(document.getElementById("valor3").value)
+
+        var resposta = ordenar(valor1, valor2, valor3);
+        saidaDados("ordem: " + resposta);
+    }
+
+    function ordenar(valor1 = 0, valor2 = 0, valor3 = 0) {
+        var temp = 0
+        if (valor1 > valor2) {
+            temp = valor2;
+            valor2 = valor1;
+            valor1 = temp;
+        }
+
+        if (valor1 > valor3) {
+            temp = valor1;
+            valor1 = valor3;
+            valor3 = temp;
+        }
+
+        if (valor2 > valor3) {
+            temp = valor2;
+            valor2 = valor3;
+            valor3 = temp;
+        }
+
+
+        return "" + valor1 + ";" + valor2 + ";" + valor3;
+    }
+
+    function saidaDados(texto_saida) {
+        document.getElementById("saidaTexto").innerHTML = texto_saida;
+    }
+
+</script>
+
+</html>
