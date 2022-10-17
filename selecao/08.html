@@ -53,6 +53,9 @@
     }
 
     function direitoaovoto(ano) {
+        if (ano <= 2004) {
+            return "Voce tem o direito de ser obrigado a votar"
+        }
         if (ano < 2007) {
             return "Você tem o direito de votar!"
         }
