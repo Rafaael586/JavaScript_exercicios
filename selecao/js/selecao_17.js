@@ -44,7 +44,7 @@ function calculoResultado(valor1 = 0, operacao = 0, valor2 = 0,) {
         return (valor1 / valor2)
     }
     else if (operacao == 4) {
-        return (valor1 * 1) * (valor2 * 2)
+        return (valor1 * valor2)
     }
     else {
         return "Error =Verifique se existe apenas 1 numero de 1 a 4 no campo de operação"
