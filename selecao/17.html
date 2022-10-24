@@ -26,16 +26,17 @@
                 <input type="text" step="1" name="valor1" id="valor1" class="form-control">
             </div>
 
-            <div class=" form-groups">
-                <label for="">1-SOMAR, 2-SUBITRAIR, 3-DIVIDIR, 4-MULTIPLICAR (operacao)</label>
-                <input type="text" step="1" name="operacao" id="operacao" class="form-control" maxlength="1"
-                    pattern="/[1-4]{1}/">
-            </div>
-
             <div class="form-groups">
                 <label for="">digite um valor (valor 2) </label>
                 <input type="text" step="1" name="valor2" id="valor2" class="form-control">
             </div>
+
+            <div class=" form-groups">
+                <label for="">Operações<br>(1- Adição, 2 - Subtração, 3 - Divisão, 4 - Multiplicação)</label>
+                <input type="text" step="1" name="operacao" id="operacao" class="form-control" min="1" max="4">
+            </div>
+
+
 
             <div class="form-groups">
                 <button type="button" class="btn btn-danger" onclick="controllercalculo() ">Calcular</button>
