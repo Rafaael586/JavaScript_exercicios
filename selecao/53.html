@@ -19,16 +19,19 @@
             informando esta condição. Apresentar junto com uma das mensagens o valor da média do
             aluno para qualquer condição.
         </p>
-        <form>
+        <form id="formCadastro">
             <div class="form-groups">
-                <label for="nome_do_aluno">Nome do aluno</label>
-                <input type="text" name="nome_do_aluno" id="nome_do_aluno" class="form-control" required>
+                <label for="nome">Nome</label>
+                <input type="text" name="nome" id="nome" class="form-control" required>
             </div>
-
+            <div class="form-groups">
+                <label for="matricula">Matricula</label>
+                <input type="text" name="matricula" id="matricula" class="form-control" required>
+            </div>
             <div class="form-groups">
                 <label for="nota-1">Nota 1</label>
+                <input type="number" name="nota-1" id="nota-1" class="form-control" required>
             </div>
-            <input type="number" name="nota-1" id="nota-1" class="form-control" required>
 
             <div class="form-groups">
                 <label for="nota-2">Nota 2</label>
@@ -47,7 +50,7 @@
 
             <div class="form-groups">
                 <button type="button" class="btn btn-primary" onclick="controllerNotas()">Cadastrar</button>
-                <button type="reset" class="btn btn-danger">Limpar</button>
+                <button type="reset" class="btn btn-danger" id="btnlimpar">Limpar</button>
             </div>
         </form>
 

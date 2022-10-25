@@ -1,10 +1,12 @@
 var aluno = {
+    nome: "",
+    matricula: "",
     nota1: 0,
     nota2: 0,
     nota3: 0,
     nota4: 0,
     media: 0,
-    resultado: 0,
+    resultado: 0
 }
 
 !(function () {
@@ -13,6 +15,8 @@ var aluno = {
 })()
 
 function controllerNotas() {
+    aluno.nome = document.getElementById("nome").value;
+    aluno.matricula = document.getElementById("matricula").value;
     aluno.nota1 = parseFloat(document.getElementById("nota-1").value);
     aluno.nota2 = parseFloat(document.getElementById("nota-2").value);
     aluno.nota3 = parseFloat(document.getElementById("nota-3").value);
@@ -23,12 +27,10 @@ function controllerNotas() {
     mostrarResultado(aluno.resultado, aluno.media);
 
     addDadosAluno(aluno);
-
+    limparForm(0);
     let alunos = listDadosAluno();
     montarTabela(alunos);
 }
-
-
 
 function calculoMedia(avaliacao1 = 0, avaliacao2 = 0, avaliacao3 = 0, avaliacao4 = 0) {
     return (avaliacao1 + avaliacao2 + avaliacao3 + avaliacao4) / 4
@@ -43,10 +45,9 @@ function verificarSituacaoAluno(media = 0) {
 
 function mostrarResultado(resultado = false, media = 0) {
     if (resultado) {
-        document.querySelector("#saidaResultado").innerHTML = "Aprovado -> media:" + media.toFixed(2);
-    }
-    else {
-        document.querySelector("#saidaResultado").innerHTML = "Reprovado -> media:" + media.toFixed(2);
+        document.querySelector("#saidaResultado").innerHTML = "Aprovado -> media: " + media.toFixed(2);
+    } else {
+        document.querySelector("#saidaResultado").innerHTML = "Reprovado -> media: " + media.toFixed(2);
     }
 }
 
@@ -57,16 +58,17 @@ function addDadosAluno(obj = {}) {
     }
     dadosBanco.push(obj);
 
-    let jsonOBJ = JSON.stringify(dadosBanco);
-    localStorage.setItem("alunos", jsonOBJ)
+    let jsonObj = JSON.stringify(dadosBanco);
+
+    localStorage.setItem("alunos", jsonObj);
 }
 
 function listDadosAluno() {
     let dadosBanco = JSON.parse(localStorage.getItem("alunos"));
     if (!dadosBanco) {
         dadosBanco = [];
-        return dadosBanco
     }
+    return dadosBanco;
 }
 
 function montarTabela(listDados = []) {
@@ -83,17 +85,27 @@ function montarTabela(listDados = []) {
     tabela += "<th>Média</th>";
     tabela += "</tr>";
 
-    for (var i = 0; i < listDados.length; i++) {
+    for (var i = 0; i < listDados.length; i++) {//i = i + 1
         tabela += "<tr>";
         tabela += "<td>" + listDados[i].nome + "</td>";
+        tabela += "<td>" + listDados[i].matricula + "</td>";
         tabela += "<td>" + listDados[i].nota1 + "</td>";
         tabela += "<td>" + listDados[i].nota2 + "</td>";
         tabela += "<td>" + listDados[i].nota3 + "</td>";
         tabela += "<td>" + listDados[i].nota4 + "</td>";
         tabela += "<td>" + listDados[i].resultado + "</td>";
         tabela += "<td>" + listDados[i].media + "</td>";
-        tabela += "</tr>;"
+        tabela += "</tr>";
     }
+
     tabela += "</table>";
+
     document.querySelector("#saidaTabela").innerHTML = tabela;
+}
+
+function limparForm(index) {
+    let form = document.getElementsByTagName("form");
+    console.log(form);
+    form[index].reset();
+
 }
