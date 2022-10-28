@@ -37,20 +37,11 @@ function calculoMedia(avaliacao1 = 0, avaliacao2 = 0, avaliacao3 = 0, avaliacao4
 }
 
 function verificarSituacaoAluno(media = 0) {
-    if (media >= 5) {
+    if (media >= 5) {  //ULA -> unidade logica aritmética  
         return true;
     }
     return false;
 }
-
-function mostrarResultado(resultado = false, media = 0) {
-    if (resultado) {
-        document.querySelector("#saidaResultado").innerHTML = "Aprovado -> media: " + media.toFixed(2);
-    } else {
-        document.querySelector("#saidaResultado").innerHTML = "Reprovado -> media: " + media.toFixed(2);
-    }
-}
-
 function addDadosAluno(obj = {}) {
     let dadosBanco = JSON.parse(localStorage.getItem("alunos"));
     if (!dadosBanco) {
@@ -104,8 +95,13 @@ function montarTabela(listDados = []) {
 }
 
 function limparForm(index) {
+    //Pegando e limpando o formulário
+    //let form = document.getElementById("formCadastro");
     let form = document.getElementsByTagName("form");
     console.log(form);
     form[index].reset();
 
+    //Clicando via código no botão
+    // let btnlimpar = document.getElementById("btnlimpar");
+    // btnlimpar.click();
 }
