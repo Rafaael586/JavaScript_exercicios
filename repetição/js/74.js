@@ -1,30 +1,23 @@
-!(function () {
-    let contagem = contarMultiplos();
-    saidaTexto("lista: " + contagem);
+(function () {
+    controllerNumeros();
 })()
 
-function contarMultiplos() {
-    let resp = "";
-    let multiplo = 0;
-
-    for (var i = 0; i <= 100; i++) {
-        for (var y = 10; y <= 100; y = y + 10) {
-
-            resp += i + y + ", ";
-
-            if (y < 101) {
-
-                multiplo += "Multiplo de 10:" + y;
-            }
-
-        }
-        return [resp, multiplo]
-    }
-
-
+function controllerNumeros() {
+    saidaResultado("Resultado: " + contarMultiplos());
 }
 
+function saidaResultado(texto) {
+    document.querySelector("#saidaResultado").innerHTML = texto;
+}
 
-function saidaTexto(texto) {
-    document.getElementById("saidaResultado").innerHTML = texto;
+function contarMultiplos() {
+    let result = "";
+
+    for (var index = 1; index <= 100; index++) {
+        if (index % 10 == 0) {
+            result += index + "multiplo de 10:<br> "
+        }
+        result += index + "<br>"
+    }
+    return result;
 }
