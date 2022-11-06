@@ -1,69 +1,24 @@
-var Pessoas = {
-    nome: "",
-    Idade: "",
-}
+let media = 0;
+let cont = 0;
 
 !(function () {
-    let Pessoas = controllerDadePessoas();
-    montarTabela(Pessoas);
-})()
+})();
+
+function saidaResultado(texto) {
+    document.querySelector("#saidaResultado").innerHTML = texto;
+}
 
 function controllerIdade() {
-    Pessoas.nome = document.getElementById("nome").value;
-    Pessoas.Idade = document.getElementById("Idade").value;
-
-
-    mostrarResultado(Pessoas.media);
-
-    addIdadePessoas(Pessoas);
-    limparForm(0);
-    let Pessoas = controllerDadePessoas();
-    montarTabela(pessoa);
-}
-function addIdadePessoas(obj = {}) {
-    let dadosBanco = JSON.parse(localStorage.getItem("pessoa"));
-    if (!dadosBanco) {
-        dadosBanco = [];
-    }
-    dadosBanco.push(obj);
-
-    let jsonObj = JSON.stringify(dadosBanco);
-
-    localStorage.setItem("pessoa", jsonObj);
+    //let idade = parseInt(document.querySelector("#idade").value);
+    saidaResultado("Media: " + media);
 }
 
-function controllerDadePessoas() {
-    let dadosBanco = JSON.parse(localStorage.getItem("pessoa"));
-    if (!dadosBanco) {
-        dadosBanco = [];
-    }
-    return dadosBanco;
+function mediaIdadeOP1(idade) {
+    cont++;//cont = cont+1;
+    media = (media + idade) / cont;
+    mostracont();
 }
 
-function montarTabela(listDados = []) {
-    let tabela = "<table class='table'>";
-
-    tabela += "<tr>";
-    tabela += "<th>Nome</th>";
-    tabela += "<th>Idade</th>";
-    tabela += "</tr>";
-
-    for (var i = 0; i < listDados.length; i++) {//i = i + 1
-        tabela += "<tr>";
-        tabela += "<td>" + listDados[i].nome + "</td>";
-        tabela += "<td>" + listDados[i].Idade + "</td>";
-
-        tabela += "</tr>";
-    }
-
-    tabela += "</table>";
-
-    document.querySelector("#saidaTabela").innerHTML = tabela;
-}
-
-function limparForm(index) {
-    let form = document.getElementsByTagName("form");
-    console.log(form);
-    form[index].reset();
-
+function mostracont(cont) {
+    document.querySelector("#contador").innerHTML = "<b>" + cont + "</b>"
 }

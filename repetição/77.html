@@ -13,32 +13,26 @@
 <body>
     <section class="container">
         <p>
-            53) Fazer um algoritmo em pseudocodigo para ler quatro valores referentes a quatro notas
-            escolares de um aluno e imprimir uma mensagem dizendo que o aluno foi aprovado, se o valor
-            da média escolar for maior ou igual a 5. Se o aluno não foi aprovado, indicar uma mensagem
-            informando esta condição. Apresentar junto com uma das mensagens o valor da média do
-            aluno para qualquer condição.
+            77) Fazer um algoritmo que:<br>
+            • Leia um número indeterminado de linhas contendo cada uma a idade de um indivíduo.<br>
+            • Calcule e escreva a idade média deste grupo de indivíduos.
         </p>
-        <form id="formCadastro">
-            <div class="form-groups">
-                <label for="nome">Nome</label>
-                <input type="text" name="nome" id="nome" class="form-control" required>
+        <form>
+            <div class="mb-3">
+                <label for="idade" class="form-label">Idade</label>
+                <input type="number" class="form-control" id="idade" aria-describedby="idadeHelp"
+                    onchange="mediaIdadeOP1(parseInt(this.value))">
+                <div id="idadeHelp" class="form-text">Entre com valores de 1 a 120</div>
             </div>
-            <div class="form-groups">
-                <label for="Idade">Idade</label>
-                <input type="text" name="Idade" id="Idade" class="form-control" required>
-            </div>
-
-
-            <div class="form-groups">
-                <button type="button" class="btn btn-primary" onclick="controllerIdade()">Cadastrar</button>
-                <button type="reset" class="btn btn-danger" id="btnlimpar">Limpar</button>
-                <button type="button" class="btn btn-success" onclick="controllerNotas()">Calcular Media</button>
+            <div class="mb-3">
+                <button type="button" class="btn btn-primary" onclick="controllerIdade()">Finalizar</button>
             </div>
         </form>
 
+        <p id="contador"></p>
+
         <div id="saidaResultado"></div>
-        <div id="saidaTabela"></div>
+
     </section>
 </body>
 

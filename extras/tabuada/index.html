@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercício</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
+</head>
+
+<body>
+    <section class="container">
+        <p>
+            A)Desenhvolva ym gerador de tabuada, capaz de gerar a tabuada de qualquer numero
+            inteiro entre 1 e 10. O
+            deve ususario deve informar de qual numero ele deseja ver a tabuada. A saide deve ser
+            conforme o exemplo abaixo...
+        </p>
+        <form action="">
+
+            <div class="form-groups">
+
+                <label for="">Digite um numero de 1 a 10.</label>
+                <input type="number" name="numero" id="numero" class="form-control">
+
+            </div>
+
+            <div class="form-groups">
+
+                <button type="button" class="btn btn-danger" onclick="controllerTabuada()">Montar</button>
+
+            </div>
+            <div id="saidaResultado"></div>
+    </section>
+</body>
+
+<script src="js/tabuada.js"></script>
+
+</html>
