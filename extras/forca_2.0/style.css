@@ -5,8 +5,8 @@ body {
     width: 100vw;
     height: 100vh;
     overflow: hidden;
-    background-color: #222;
-    color: aliceblue;
+    background-color: #fff;
+    color: #000;
     font-family: "Roboto", sans-serif;
 }
 
@@ -18,7 +18,7 @@ body {
 
 .forca {
     fill: transparent;
-    stroke: #fff;
+    stroke: #000;
     stroke-width: 4px;
     stroke-linecap: round;
 }
